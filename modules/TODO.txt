@@ -1,0 +1,11 @@
+TODO:
+
+The following modules would be desired as additions here. The following list should be enough for testing
+framework setups with:
+
+* tsk_fswalk   :  Walking a regular file-system
+* exif         : meta from jpeg 
+* scalpel      : carving
+* digest_blake2  : modern MattockFS compatible hash matching
+* elasticsearch_indexer  : indexer module using elastic search
+* arangodb_dsm : data store module using arangodb
