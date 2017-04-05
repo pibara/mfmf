@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import magic
 
 class TrivialTreeWalker:
     def __init__(self,module=None):
@@ -6,7 +7,8 @@ class TrivialTreeWalker:
     def set_module(self,module):
         self.module = module
     def mimetype(self,cp):
-        return "bogus/bogus" #FIXME
+        mimetype = magic.detect_from_filename(cp).mime_type
+        return mimetype
     def _node_walk(self,node,child_submit,allocate_storage,job):
         for childnode in node.children():
             self._node_walk(childnode,child_submit,allocate_storage,job)

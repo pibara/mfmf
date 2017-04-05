@@ -20,17 +20,16 @@ class Partition:
             if ptype.lower() == "unallocated":
                 self.mime = "disk-partition/unallocated"
             else:
-                self.mime = "disk-partition/other"
+                self.mime = None
     def get_carvpath(self,allocate_storage):
-        print "child carvpath:",self.carvpath
         return self.carvpath
     def children(self):
         return []
     def get_meta(self):
         meta = {}
         meta["partition-type"] = self.ptype
-        meta["mime-type"] = self.mime
-        print "child meta:",meta
+        if self.mime != None:
+            meta["mime-type"] = self.mime
         return meta
 
     
@@ -38,7 +37,6 @@ class RootNode:
     def __init__(self,carvpathfile):
         self.cp=carvpathfile
         imgpath = carvpathfile.as_file_path()
-        print imgpath
         img=pytsk3.Img_Info(imgpath)
         self.volume = pytsk3.Volume_Info(img)
     def children(self):
@@ -55,7 +53,6 @@ class RootNode:
         meta["endian"] = str(self.volume.info.endian)
         meta["part_count"] = self.volume.info.part_count
         meta["vstype"] = str(self.volume.info.vstype)
-        print "top meta: ", meta
         return meta
 
 class MmlsModule:

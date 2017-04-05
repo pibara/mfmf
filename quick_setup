@@ -1,0 +1,83 @@
+#!/bin/bash -x
+if grep --quiet "^mattockfs:" /etc/passwd; then
+  #Use regular setup to install the code and most python dependencies.
+  python ./setup.py build
+  sudo python ./setup.py install 
+  #The above seems to fail sometimes after updating a source file, running it twice seems to fix it, duno why yet
+  python ./setup.py build
+  sudo python ./setup.py install
+  mkdir -p /usr/lib/mfmf/bin
+  sudo cp modules/*.py /usr/lib/mfmf/bin/
+  sudo cp -R etc/* /etc/
+  if grep --quiet "^mfmf_001:" /etc/passwd; then
+      echo "User mfmf_??? users exists already" 
+  else
+      groupadd -r mfmf_grp
+      sudo useradd mfmf_000 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_001 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_002 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_003 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_004 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_005 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_006 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_007 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_008 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_009 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_010 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_011 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_012 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_013 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_014 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_015 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_016 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_017 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_018 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_019 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_020 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_021 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_022 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_023 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_024 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_025 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_026 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_027 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_028 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_029 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_030 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_031 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_032 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_033 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_034 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_035 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_036 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_037 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_038 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_039 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_040 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_041 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_042 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_043 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_044 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_045 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_046 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_047 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_048 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_049 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_050 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_051 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_052 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_053 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_054 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_055 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_056 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_057 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_058 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_059 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_060 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_061 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_062 -g mfmf_grp -d /var/mattock/mnt
+      sudo useradd mfmf_063 -g mfmf_grp -d /var/mattock/mnt
+  fi
+else
+  echo "Install MattockFS first!"
+fi

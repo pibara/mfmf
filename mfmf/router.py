@@ -4,7 +4,7 @@ import json
 class TrivialRouter:
     def __init__(self):
         #Simple json that maps from mime-type to module;ext
-        with open("/etc/mattock_trivial_router_conf.json","r") as f:
+        with open("/etc/mfmf/mattock_trivial_router_conf.json","r") as f:
             jsondata = f.read()
             self.rules = json.loads(jsondata) 
     def _mime_to_module(self,mime):
