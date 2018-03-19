@@ -19,7 +19,8 @@ class TrivialTreeWalker:
             child_submit(job,cp,meta)
     def walk(self,carvpath,argument,child_submit,allocate_storage,job):
         node = self.module.root(carvpath,argument)
-        self._node_walk(node,child_submit,allocate_storage,job) 
-        return node.get_meta()
+        self._node_walk(node,child_submit,allocate_storage,job)
+        meta = node.get_meta()
+        return meta
 
  

@@ -27,7 +27,7 @@ class TrivialRouter:
     def process_parent_meta(self,toplevel_meta):
         pass
     def get_parentmeta_routing_info(self):
-        return None,""
+        return "dsm",""
     def clear_state(self):
         pass
     def get_parentdata_routing_info(self):

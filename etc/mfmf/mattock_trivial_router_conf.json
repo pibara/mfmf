@@ -1,5 +1,6 @@
 {
   "application/disk-img" : "mmls;dd" ,
   "application/file-system" : "fswalk;dd" ,
-  "image/jpeg" : "exif;jpeg"
+  "image/jpeg" : "exif;jpeg",
+  "x-blockchain/merkleroot" : "integrity;json"
 }

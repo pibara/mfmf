@@ -77,15 +77,15 @@ class EventLoop:
             job.childsubmit(carvpath=meta_carvpath,
                         nextactor=meta_nexthop,
                         routerstate=meta_routerstate,
-                        mimetype=self.serializer.mimetype,
-                        extension=self.serializer.ext)
+                        mimetype=self.serializer.mimetype(),
+                        extension=self.serializer.ext())
         if data_nexthop != None:
             self.throttler.on_anycast(data_nexthop)
             job.childsubmit(carvpath=carvpath,
                         nextactor=data_nexthop,
                         routerstate=data_routerstate,
-                        mimetype=data_mimetype,
-                        extension=data_ext)
+                        mimetype=data_mimetype(),
+                        extension=data_ext())
     def _allocate_storage(self,size):
         self.throttler.on_alloc(size)
         return self.job.childdata(size)
@@ -107,8 +107,8 @@ class EventLoop:
                 job.childsubmit(carvpath=meta_carvpath,
                             nextactor=meta_module,
                             routerstate=meta_router_state,
-                            mimetype=self.serializer.mimetype,
-                            extension=self.serializer.ext)
+                            mimetype=self.serializer.mimetype(),
+                            extension=self.serializer.ext())
             data_module,data_router_state = self.router.get_parentdata_routing_info()
             if data_module == None:
                 job.done()
