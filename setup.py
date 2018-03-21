@@ -38,8 +38,6 @@ setup(
         'Environment :: No Input/Output (Daemon)'
     ],
     keywords='computer forensics',
-    #install_requires=['pyblake2','fuse-python','redis','fadvise','xattr'],
-    #FIXME, removed a few as to help with deb file creation.
-    install_requires=['mattock'],
+    install_requires=['mattock',"pytsk3","xattr"],
     packages=find_packages(exclude=['modules']),
 )
