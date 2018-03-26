@@ -84,8 +84,8 @@ class EventLoop:
             job.childsubmit(carvpath=carvpath,
                         nextactor=data_nexthop,
                         routerstate=data_routerstate,
-                        mimetype=data_mimetype(),
-                        extension=data_ext())
+                        mimetype=data_mimetype,
+                        extension=data_ext)
     def _allocate_storage(self,size):
         self.throttler.on_alloc(size)
         return self.job.childdata(size)
